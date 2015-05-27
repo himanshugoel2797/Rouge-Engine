@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Config.h"
-#include "Logger.h"
+#include "LowLevel/Logger.h"
 
 
 extern char threadIDs;
@@ -11,8 +11,6 @@ extern thread_local char curThreadID;
 #define KB(x) (1024 * x)
 #define MB(x) (1024 * KB(x))
 #define GB(x) (1024 * MB(x))
-
-#define LOG(z, x) printf(z, x)
 
 template<typename T> inline bool CHECK_BIT(T var, T pos) { return ((var)& (((T)1) << (pos))) == 1; }
 template<typename T> inline T SET_BIT(T var, T pos) { return var | (((T)1) << pos); }
@@ -54,3 +52,28 @@ u_int32 uPoT(u_int32 v);
 #define LOG__FATAL(...) el::Loggers::getLogger(std::to_string(curThreadID))->fatal(__VA_ARGS__)
 #define LOG__TRACE(...) el::Loggers::getLogger(std::to_string(curThreadID))->trace(__VA_ARGS__)
 #define LOG__VERBOSE(...) el::Loggers::getLogger(std::to_string(curThreadID))->verbose(__VA_ARGS__)
+
+#pragma region Enum flags
+#define USE_ENUM_FLAGS_FUNCTION 1
+#define ENUM_FLAGS_EX_NO_FLAGS_FUNC(T,INT_T) \
+friend inline constexpr T    operator    &   (T x, T y)      {   return static_cast<T>   (static_cast<INT_T>(x) & static_cast<INT_T>(y));    }; \
+friend inline constexpr T    operator    |   (T x, T y)      {   return static_cast<T>   (static_cast<INT_T>(x) | static_cast<INT_T>(y));    }; \
+friend inline constexpr T    operator    ^   (T x, T y)      {   return static_cast<T>   (static_cast<INT_T>(x) ^ static_cast<INT_T>(y));    }; \
+friend inline constexpr T    operator    ~   (T x)           {   return static_cast<T>   (~static_cast<INT_T>(x));                           }; \
+friend inline T&   operator    &=  (T& x, T y)     {   x = x & y;  return x;   }; \
+friend inline T&   operator    |=  (T& x, T y)     {   x = x | y;  return x;   }; \
+friend inline T&   operator    ^=  (T& x, T y)     {   x = x ^ y;  return x;   };
+
+#if(USE_ENUM_FLAGS_FUNCTION)
+
+#define ENUM_FLAGS_EX(T,INT_T) ENUM_FLAGS_EX_NO_FLAGS_FUNC(T,INT_T) \
+    static inline bool         flags(T x)          {   return static_cast<INT_T>(x) != 0;};
+
+#else
+
+#define ENUM_FLAGS_EX(T,INT_T) ENUM_FLAGS_EX_NO_FLAGS_FUNC(T,INT_T) 
+
+#endif
+
+#define ENUM_FLAGS(T) ENUM_FLAGS_EX(T,int)
+#pragma endregion

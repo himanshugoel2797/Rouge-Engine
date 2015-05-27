@@ -77,8 +77,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
-    <ClInclude Include="EventQueue.h" />
-    <ClInclude Include="Logger.h" />
+    <ClInclude Include="LowLevel\EventQueue.h" />
+    <ClInclude Include="LowLevel\Logger.h" />
+    <ClInclude Include="LowLevel\MessageBus.h" />
     <ClInclude Include="Math\GVectorFAVX.h" />
     <ClInclude Include="Math\Math.h" />
     <ClInclude Include="MemoryManager\BlockAllocator.h" />
@@ -88,7 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonHelpers.cpp" />
-    <ClCompile Include="EventQueue.cpp" />
+    <ClCompile Include="LowLevel\EventQueue.cpp" />
+    <ClCompile Include="LowLevel\MessageBus.cpp" />
     <ClCompile Include="Math\GVectorFAVX.cpp" />
     <ClCompile Include="MemoryManager\BlockAllocator.cpp" />
     <ClCompile Include="main.cpp" />

@@ -45,13 +45,16 @@
     <ClInclude Include="Math\SimpleMath.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="EventQueue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Logger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LowLevel\EventQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LowLevel\Logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LowLevel\MessageBus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,7 +77,10 @@
     <ClCompile Include="Math\SimpleMath.cpp">
       <Filter>Source Files\Math</Filter>
     </ClCompile>
-    <ClCompile Include="EventQueue.cpp">
+    <ClCompile Include="LowLevel\EventQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LowLevel\MessageBus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

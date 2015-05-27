@@ -1,5 +1,5 @@
 #pragma once
-#include "CommonHelpers.h"
+#include "../CommonHelpers.h"
 
 //Represents a generic message queue
 class EventQueue

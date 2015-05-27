@@ -1,4 +1,4 @@
-#include "Config.h"
+#include "../Config.h"
 
 #define ELPP_DEFAULT_LOG_FILE "log.txt"
 #define ELPP_UNICODE

@@ -12,8 +12,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E7CE77F6-2792-4EE1-B016-653D54C62343}</ProjectGuid>
-    <RootNamespace>MessierX</RootNamespace>
+    <RootNamespace>Rouge</RootNamespace>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <ProjectName>Rouge</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

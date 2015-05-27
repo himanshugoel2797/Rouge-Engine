@@ -18,7 +18,7 @@ const char CACHE_FILE[] = "MemoryCache.tmp";
 class MemoryManager
 {
 public:
-	static void Init();
+	static void Initialize();
 	static void* Alloc(size_t size);
 	static void Free(void *p);
 	static void Defrag();

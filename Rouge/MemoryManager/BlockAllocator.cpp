@@ -3,7 +3,7 @@
 void* BlockAllocator::allocLocation;
 BlockAllocator::blockEntry *BlockAllocator::blocks, *BlockAllocator::prevBlock;
 
-void BlockAllocator::Init()
+void BlockAllocator::Initialize()
 {
 	allocLocation = malloc(HEAP_SIZE);
 	blocks = (blockEntry*)malloc(sizeof(blockEntry));

@@ -81,22 +81,28 @@
     <ClInclude Include="LowLevel\EventQueue.h" />
     <ClInclude Include="LowLevel\Logger.h" />
     <ClInclude Include="LowLevel\MessageBus.h" />
+    <ClInclude Include="LowLevel\Task.h" />
+    <ClInclude Include="LowLevel\TaskManager.h" />
     <ClInclude Include="Math\GVectorFAVX.h" />
     <ClInclude Include="Math\Math.h" />
     <ClInclude Include="MemoryManager\BlockAllocator.h" />
     <ClInclude Include="CommonHelpers.h" />
     <ClInclude Include="MemoryManager\MemoryManager.h" />
     <ClInclude Include="Math\SimpleMath.h" />
+    <ClInclude Include="System.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommonHelpers.cpp" />
     <ClCompile Include="LowLevel\EventQueue.cpp" />
     <ClCompile Include="LowLevel\MessageBus.cpp" />
+    <ClCompile Include="LowLevel\Task.cpp" />
+    <ClCompile Include="LowLevel\TaskManager.cpp" />
     <ClCompile Include="Math\GVectorFAVX.cpp" />
     <ClCompile Include="MemoryManager\BlockAllocator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MemoryManager\MemoryManager.cpp" />
     <ClCompile Include="Math\SimpleMath.cpp" />
+    <ClCompile Include="System.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

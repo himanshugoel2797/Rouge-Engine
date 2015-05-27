@@ -7,7 +7,7 @@ class BlockAllocator
 {
 public:
 	static const u_int32 HEAP_SIZE = GB(1);
-	static void Init();
+	static void Initialize();
 	static void* Allocate(size_t size);
 	static void Free(void *p);
 

@@ -2,7 +2,7 @@
 
 thread_local struct MemoryManager::pageData MemoryManager::pages[PAGE_COUNT];
 
-void MemoryManager::Init()
+void MemoryManager::Initialize()
 {
 	int blockSize = MIN_BLOCK_SIZE;
 	for (int pageID = 0; pageID < PAGE_COUNT; pageID++)
@@ -51,6 +51,8 @@ void * MemoryManager::Alloc(size_t size)	//TODO for debug mode implement buffer 
 	}
 	//TODO if all pages are full this will create a very large unnecessary allocation on heap which should be handled
 
+
+	LOG__INFO("Allocated %v(%v) bytes", rSize, size);
 	//Find empty page in requested, allocate page if not allocated, if not enough room, allocate in higher page, if that fails, allocate on heap
 	return allocLocation;
 }
@@ -71,7 +73,7 @@ void MemoryManager::Free(void * p)
 			u_int32 blockBit = blockIndex % (sizeof(u_int32) * CHAR_BIT);
 			u_int8 blockOff = blockIndex / (sizeof(u_int32) * CHAR_BIT);
 			pages[index].blockStates[blockOff] = CLEAR_BIT(pages[index].blockStates[blockOff], blockBit);
-
+			LOG__INFO("Freed %v bytes", pages[index].blockSize);
 			pointerVal = 0;
 			break;
 		}
